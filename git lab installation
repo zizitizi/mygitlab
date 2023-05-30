@@ -1,0 +1,82 @@
+### install gitlab on ubuntu 22.04
+
+sudo apt update
+
+##install prequisite
+
+sudo apt install tzdata curl ca-certificates openssh-server
+
+## At the time of this write-up, the Gitlab repository for Ubuntu 22.04 is not available. Here, we will configure the Gitlab repository for Focal-Fossa (Ubuntu 20.04) on Jammy Jellyfish (Ubuntu 22.04).
+
+gpg_key_url="https://packages.gitlab.com/gitlab/gitlab-ce/gpgkey"
+
+curl -fsSL $gpg_key_url| sudo gpg --dearmor -o /etc/apt/trusted.gpg.d/gitlab.gpg
+
+##Now, add the Gitlab repository of Ubuntu 20.04 inside the sources.list.d file of Ubuntu 22.04.
+
+sudo tee /etc/apt/sources.list.d/gitlab_gitlab-ce.list<<EOF
+
+deb https://packages.gitlab.com/gitlab/gitlab-ce/ubuntu/ focal main
+
+deb-src https://packages.gitlab.com/gitlab/gitlab-ce/ubuntu/ focal main
+
+EOF
+
+
+##update repo
+
+sudo apt update
+
+##now you can apt install gitlab-ce community edition
+
+sudo apt install gitlab-ce
+
+##check installation with help file
+
+sudo gitlab-rake gitlab:env:info
+
+
+### How to configure GitLab on Ubuntu 22.04
+
+sudo ufw allow https
+
+sudo ufw allow http
+
+sudo ufw allow ssh
+
+
+sudo ufw reload
+
+
+##Check the web address where the Gitlab web interface will be accessible: on external_url line:
+
+sudo nano /etc/gitlab/gitlab.rb
+
+sudo gitlab-ctl reconfigure
+
+##start git lab server
+
+sudo gitlab-ctl start
+
+sudo gitlab-ctl status
+
+sudo gitlab-ctl start
+
+
+
+### remove gitlab
+
+sudo apt remove gitlab-ce
+
+sudo rm /etc/apt/sources.list.d/gitlab_gitlab-ce.list
+
+
+
+
+
+
+
+
+
+
+
