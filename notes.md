@@ -28,4 +28,7 @@ git push -u origin master
   
  git push -u origin master
 
+##  git push --force (if not work)
 
+to force push yoou should unprotected a branch from git project setting > repository > Protected branches
+hit the unprotected.
