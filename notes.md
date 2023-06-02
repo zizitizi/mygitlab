@@ -14,6 +14,18 @@ public key in ubuntu in ~/.ssh/
 
 fro ex. let's encrypt
 
+## add git lab remote to your local working folder
 
+git remote add origin http://192.168.44.142/zeintiz/test1.git
+git remote -v
+git push -u origin master
+
+ vi server.txt
+ 
+ git add -A
+ 
+ git commit -m "hi im herer"
+  
+ git push -u origin master
 
 
