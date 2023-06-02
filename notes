@@ -1,0 +1,19 @@
+## mirroring
+
+in your git lab go to project setting > repository > Mirroring repositories
+add git hub repo url with username: https://username@gitlab.company.com/group/project.git or zizitizi@github.com/zizitizi/testmiror.git and add token generated in profile setting in github
+
+click save and after that sync
+
+
+## add your ssh-key 
+public key in ubuntu in ~/.ssh/
+
+
+## add ssl
+
+fro ex. let's encrypt
+
+
+
+
